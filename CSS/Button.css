@@ -1,0 +1,102 @@
+ /* Theme Variables */
+ html[data-theme="dark"] {
+    --bg-primary: #000000;
+    --bg-secondary: #000C3D;
+    --text-primary: #FFFFFF;
+    --text-secondary: #E0E0E0;
+    --accent: #66FF00;
+    --card-bg: rgba(0, 12, 61, 0.9);
+    --border-color: rgba(102, 255, 0, 0.2);
+}
+
+html[data-theme="light"] {
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F0F0F0;
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --accent: #000C3D;
+    --card-bg: #FFFFFF;
+    --border-color: rgba(0, 12, 61, 0.2);
+}
+
+/* Transition for theme switching */
+* {
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--accent);
+    color: var(--bg-primary);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Update existing styles with new variables */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+nav {
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.header h1 {
+    color: var(--accent);
+}
+
+.mission {
+    background: var(--bg-secondary);
+    border-left: 4px solid var(--accent);
+}
+
+.mission h2 {
+    color: var(--accent);
+}
+
+.team-member {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.team-member h3 {
+    color: var(--accent);
+}
+
+.team-member .role {
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+}
+
+.team-member p {
+    color: var(--text-secondary);
+}
+
+.section-title {
+    color: var(--accent);
+}
