@@ -139,10 +139,20 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             padding: 1rem;
             transition: transform 0.3s;
+            overflow: hidden;
         }
 
-        .carousel-item:hover {
-            transform: translateY(-5px);
+        .carousel-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-item:hover img {
+            transform: scale(1.05);
         }
 
         /* Footer */

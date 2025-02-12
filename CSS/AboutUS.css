@@ -188,3 +188,12 @@
             height: 3px;
             background-color: var(--bright-green);
         }
+
+        
+        /* Footer */
+        .footer {
+            background: #000C3D;
+            color: #FFFFFF;
+            padding: 2rem;
+            text-align: center;
+        }
