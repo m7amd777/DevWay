@@ -8,6 +8,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="../CSS/home.css">
     <link rel="stylesheet" href="../CSS/Button.css">
+    <!-- Add these before your other scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.js"></script>
 </head>
 <body>
     <div id="matrix-bg"></div>
@@ -62,6 +66,7 @@
             <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
         </svg>
     </button>
+    <div id="chatbot-container"></div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -71,7 +76,7 @@
             <p>&copy; 2025 Devway. All rights reserved. ⚡</p>
         </div>
     </footer>
-
+    <script src="../js/ChatBot.js"></script>
     <script src="../js/script.js"></script>
     <script src="../js/Button.js"></script>
 </body>

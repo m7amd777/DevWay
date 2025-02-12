@@ -106,7 +106,7 @@
             text-align: center;
             padding: 4rem 2rem;
             background: linear-gradient(135deg, #000C3D 0%, #001066 100%);
-            color: #FFFFFF;
+            color: #66FF00;
             position: relative;
             overflow: hidden;
         }
@@ -129,12 +129,12 @@
             gap: 2rem;
             padding: 2rem;
             overflow-x: auto;
-            background: #FFFFFF;
+            /* background:#66FF00; */
         }
 
         .carousel-item {
             flex: 0 0 calc(50% - 1rem);
-            background: #FFFFFF;
+            background:#66FF00;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             padding: 1rem;
@@ -171,6 +171,11 @@
             line-height: 1;
             animation: fall linear infinite;
         }
+        /* Add to your CSS file */
+#chatbot-container {
+    position: relative;
+    z-index: 1000;
+}
 
         @keyframes fall {
             to {
