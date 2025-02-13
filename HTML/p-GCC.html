@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EU AI Policies & Regulations - DevWay</title>
+    <title>GCC AI Policies & Regulations - DevWay</title>
     <link rel="stylesheet" href="../CSS/Button.css">
     <style>
          * {
@@ -114,7 +114,6 @@
             --light-gray: #E0E0E0;
         }
         
-        /* Using the same base styles as US page with EU-specific modifications */
         .policy-hero {
             text-align: center;
             padding: 4rem 2rem;
@@ -143,33 +142,60 @@
             line-height: 1.6;
         }
 
-        .risk-levels {
+        .country-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .country-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .country-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .country-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .country-flag {
+            font-size: 2rem;
+        }
+
+        .key-features {
             max-width: 1200px;
             margin: 3rem auto;
             padding: 2rem;
         }
 
-        .risk-level-card {
+        .feature-card {
             background: white;
             border-radius: 12px;
             padding: 2rem;
             margin-bottom: 1.5rem;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
         }
 
-        .risk-level-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .risk-level-header {
+        .feature-header {
             display: flex;
             align-items: center;
             gap: 1rem;
             margin-bottom: 1rem;
         }
 
-        .risk-icon {
+        .feature-icon {
             background: #66FF00;
             padding: 0.75rem;
             border-radius: 8px;
@@ -177,121 +203,90 @@
             font-size: 1.5rem;
         }
 
-        .risk-title {
-            font-size: 1.5rem;
-            color: #000C3D;
-            margin: 0;
+        .initiatives {
+            background: #f5f5f5;
+            padding: 4rem 2rem;
         }
 
-        .requirements-grid {
+        .initiative-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            padding: 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .requirement-card {
+        .initiative-card {
             background: white;
-            border-radius: 12px;
             padding: 2rem;
+            border-radius: 12px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        .requirement-card h3 {
+        .initiative-card h3 {
+            color: #000C3D;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: #000C3D;
-            margin-bottom: 1rem;
         }
 
-        .compliance-steps {
+        .timeline {
             max-width: 1000px;
             margin: 4rem auto;
             padding: 2rem;
         }
 
-        .step-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        .timeline-item {
             display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 1.5rem;
-            align-items: start;
-        }
-
-        .step-number {
-            background: #66FF00;
-            color: #000C3D;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .penalties {
-            background: #f5f5f5;
-            padding: 4rem 2rem;
-        }
-
-        .penalties h2 {
-            text-align: center;
-            color: #000C3D;
-            margin-bottom: 2rem;
-        }
-
-        .penalty-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 100px 1fr;
             gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            margin-bottom: 2rem;
+            position: relative;
         }
 
-        .penalty-card {
+        .timeline-date {
+            color: #66FF00;
+            font-weight: bold;
+            text-align: right;
+            padding-top: 0.5rem;
+        }
+
+        .timeline-content {
             background: white;
             padding: 1.5rem;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         /* Dark Mode Styles */
-        body.dark-mode .risk-level-card,
-        body.dark-mode .requirement-card,
-        body.dark-mode .step-card,
-        body.dark-mode .penalty-card {
+        body.dark-mode .country-card,
+        body.dark-mode .feature-card,
+        body.dark-mode .initiative-card,
+        body.dark-mode .timeline-content {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(102, 255, 0, 0.2);
             color: white;
         }
 
-        body.dark-mode .penalties {
+        body.dark-mode .initiatives {
             background: #000C3D;
         }
 
         body.dark-mode h2,
-        body.dark-mode h3,
-        body.dark-mode .risk-title {
+        body.dark-mode h3 {
             color: #66FF00;
         }
 
         @media (max-width: 768px) {
-            .step-card {
+            .timeline-item {
                 grid-template-columns: 1fr;
-                gap: 1rem;
             }
 
-            .step-number {
-                margin: 0 auto;
+            .timeline-date {
+                text-align: left;
+                margin-bottom: 0.5rem;
             }
         }
     </style>
@@ -324,130 +319,138 @@
     </nav>
 
     <section class="policy-hero">
-        <h1>🇪🇺 EU AI Policies & Regulations</h1>
-        <p>Discover the comprehensive framework of the EU AI Act and its implications for AI development and deployment in the European Union.</p>
+        <h1>🌏 GCC AI Policies & Regulations</h1>
+        <p>Explore the innovative AI initiatives and regulatory frameworks across the Gulf Cooperation Council region.</p>
     </section>
 
-    <section class="risk-levels">
-        <h2 style="text-align: center; margin-bottom: 2rem; color: #000C3D;">AI Risk Levels</h2>
+    <section class="country-grid">
+        <div class="country-card">
+            <div class="country-header">
+                <span class="country-flag">🇸🇦</span>
+                <h3>Saudi Arabia</h3>
+            </div>
+            <ul>
+                <li>National AI Strategy</li>
+                <li>AI Ethics Principles</li>
+                <li>SDAIA Governance Framework</li>
+                <li>Investment in AI Research</li>
+            </ul>
+        </div>
+
+        <div class="country-card">
+            <div class="country-header">
+                <span class="country-flag">🇦🇪</span>
+                <h3>United Arab Emirates</h3>
+            </div>
+            <ul>
+                <li>UAE AI Strategy 2031</li>
+                <li>AI Ethics Guidelines</li>
+                <li>Smart Dubai Initiative</li>
+                <li>AI Ministry</li>
+            </ul>
+        </div>
+
+        <div class="country-card">
+            <div class="country-header">
+                <span class="country-flag">🇶🇦</span>
+                <h3>Qatar</h3>
+            </div>
+            <ul>
+                <li>Qatar National AI Strategy</li>
+                <li>TASMU Smart Qatar</li>
+                <li>AI Research Institute</li>
+                <li>Digital Innovation Hub</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="key-features">
+        <h2 style="text-align: center; margin-bottom: 2rem; color: #000C3D;">Key Regulatory Features</h2>
         
-        <div class="risk-level-card">
-            <div class="risk-level-header">
-                <span class="risk-icon">⛔</span>
-                <h3 class="risk-title">Banned AI (Unacceptable Risk)</h3>
+        <div class="feature-card">
+            <div class="feature-header">
+                <span class="feature-icon">📋</span>
+                <h3>Soft Law Approach</h3>
             </div>
-            <ul>
-                <li>Social scoring systems</li>
-                <li>Real-time biometric surveillance (with exceptions)</li>
-                <li>AI manipulation of human behavior</li>
-                <li>Exploitation of vulnerabilities</li>
-            </ul>
+            <p>Implementation of guidelines and principles to foster an AI-friendly ecosystem while maintaining ethical standards.</p>
         </div>
 
-        <div class="risk-level-card">
-            <div class="risk-level-header">
-                <span class="risk-icon">⚠️</span>
-                <h3 class="risk-title">High-Risk AI</h3>
+        <div class="feature-card">
+            <div class="feature-header">
+                <span class="feature-icon">⚖️</span>
+                <h3>Risk-Based Framework</h3>
             </div>
-            <ul>
-                <li>Critical infrastructure</li>
-                <li>Educational/vocational training</li>
-                <li>Employment and worker management</li>
-                <li>Essential private/public services</li>
-            </ul>
+            <p>Adoption of risk-based approaches to AI regulation, allowing for tailored oversight based on potential risks.</p>
         </div>
 
-        <div class="risk-level-card">
-            <div class="risk-level-header">
-                <span class="risk-icon">📝</span>
-                <h3 class="risk-title">Limited Risk AI</h3>
+        <div class="feature-card">
+            <div class="feature-header">
+                <span class="feature-icon">🤝</span>
+                <h3>International Alignment</h3>
             </div>
-            <ul>
-                <li>Chatbots</li>
-                <li>Emotion recognition systems</li>
-                <li>Biometric categorization systems</li>
-                <li>Deep fakes</li>
-            </ul>
-        </div>
-
-        <div class="risk-level-card">
-            <div class="risk-level-header">
-                <span class="risk-icon">✅</span>
-                <h3 class="risk-title">Minimal Risk AI</h3>
-            </div>
-            <ul>
-                <li>AI-enabled video games</li>
-                <li>Spam filters</li>
-                <li>Inventory management systems</li>
-                <li>Basic AI research</li>
-            </ul>
+            <p>Alignment with global AI principles and standards while maintaining regional values and priorities.</p>
         </div>
     </section>
 
-    <section class="compliance-steps">
-        <h2 style="text-align: center; margin-bottom: 2rem; color: #000C3D;">Key Compliance Steps</h2>
+    <section class="initiatives">
+        <h2 style="text-align: center; margin-bottom: 2rem;">Major Initiatives</h2>
+        <div class="initiative-grid">
+            <div class="initiative-card">
+                <h3>🎓 Education & Training</h3>
+                <p>Comprehensive AI education programs and training initiatives to build local talent.</p>
+                <ul>
+                    <li>AI Summer Camps</li>
+                    <li>University Partnerships</li>
+                    <li>Professional Certification</li>
+                </ul>
+            </div>
+
+            <div class="initiative-card">
+                <h3>🔬 Research & Development</h3>
+                <p>Investment in AI research centers and development facilities.</p>
+                <ul>
+                    <li>AI Research Centers</li>
+                    <li>Innovation Hubs</li>
+                    <li>Technology Parks</li>
+                </ul>
+            </div>
+
+            <div class="initiative-card">
+                <h3>🤖 Industry Applications</h3>
+                <p>Sector-specific AI implementation programs.</p>
+                <ul>
+                    <li>Healthcare AI</li>
+                    <li>Smart Cities</li>
+                    <li>Public Services</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline">
+        <h2 style="text-align: center; margin-bottom: 2rem; color: #000C3D;">Development Timeline</h2>
         
-        <div class="step-card">
-            <div class="step-number">1</div>
-            <div>
-                <h3>Risk Assessment</h3>
-                <p>Determine your AI system's risk category and applicable requirements</p>
+        <div class="timeline-item">
+            <div class="timeline-date">2025</div>
+            <div class="timeline-content">
+                <h3>AI Governance Framework</h3>
+                <p>Implementation of comprehensive AI governance guidelines across GCC.</p>
             </div>
         </div>
 
-        <div class="step-card">
-            <div class="step-number">2</div>
-            <div>
-                <h3>Documentation</h3>
-                <p>Maintain comprehensive technical documentation and establish data governance</p>
+        <div class="timeline-item">
+            <div class="timeline-date">2024</div>
+            <div class="timeline-content">
+                <h3>Regional AI Strategy</h3>
+                <p>Launch of coordinated GCC AI strategy focusing on cross-border collaboration.</p>
             </div>
         </div>
 
-        <div class="step-card">
-            <div class="step-number">3</div>
-            <div>
-                <h3>Testing & Validation</h3>
-                <p>Implement rigorous testing protocols and bias prevention measures</p>
-            </div>
-        </div>
-
-        <div class="step-card">
-            <div class="step-number">4</div>
-            <div>
-                <h3>Monitoring</h3>
-                <p>Establish continuous monitoring and post-market surveillance systems</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="penalties">
-        <h2>Non-Compliance Penalties</h2>
-        <div class="penalty-grid">
-            <div class="penalty-card">
-                <h3>Severe Violations</h3>
-                <p>Up to €35M or 7% of global revenue</p>
-                <ul>
-                    <li>Use of prohibited AI systems</li>
-                    <li>Violation of data governance requirements</li>
-                </ul>
-            </div>
-
-            <div class="penalty-card">
-                <h3>Major Violations</h3>
-                <p>Up to €15M or 3% of global revenue</p>
-                <ul>
-                    <li>Non-compliance with obligations</li>
-                    <li>Provision of incorrect information</li>
-                </ul>
-            </div>
-
-            <div class="penalty-card">
-                <h3>Minor Violations</h3>
-                <p>Up to €7.5M or 1.5% of global revenue</p>
-                <ul>
-                    <li>Minor documentation issues</li>
-                    <li>Technical non-compliance</li>
-                </ul>
+        <div class="timeline-item">
+            <div class="timeline-date">2023</div>
+            <div class="timeline-content">
+                <h3>Ethics Framework</h3>
+                <p>Development of unified AI ethics framework for the region.</p>
             </div>
         </div>
     </section>
