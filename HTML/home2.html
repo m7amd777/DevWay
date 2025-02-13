@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,6 +66,7 @@
         </svg>
     </button>
 
+
     <div id="chatbot-container"></div>
     <div class="chat-toggle">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
@@ -115,6 +115,9 @@
         </div>
     </div>
 
+    <!-- Embed AI Ethics Chatbot -->
+    <iframe src="ai-ethics-chatbot.html" style="width: 100%; height: 600px; border: none;"></iframe>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
@@ -127,5 +130,10 @@
     <script src="../js/script.js"></script>
     <script src="../js/Button.js"></script>
     <script src="../js/chatbot.js"></script>
+    <script>
+        document.querySelector('.chat-toggle').addEventListener('click', function() {
+            document.querySelector('.chat-container').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
