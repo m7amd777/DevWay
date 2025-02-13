@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EU AI Policies & Regulations - DevWay</title>
+    <link rel="stylesheet" href="../CSS/Button.css">
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Fira Code', monospace;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo {
+            width: var(--logo-size);
+            height: var(--logo-size);
+            object-fit: contain;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--white);
+        }
+        
+        /* Navigation styles */
+        .nav {
+            background-color: var(--dark-blue);
+            padding: 0 2rem;
+            height: var(--nav-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        
+        .nav-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        
+        .nav-item {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            padding: 0 1.5rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #66FF00;
+        }
+        
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #000C3D;
+            min-width: 200px;
+            border-radius: 4px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-link {
+            display: block;
+            padding: 0.8rem 1rem;
+            color: #FFFFFF;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .dropdown-link:hover {
+            background: #66FF00;
+            color: #000C3D;
+        }
+        
+        
+        :root {
+            --logo-size: 40px;
+            --nav-height: 60px;
+            --dark-blue: #000C3D;
+            --bright-green: #66FF00;
+            --white: #FFFFFF;
+            --black: #000000;
+            --light-gray: #E0E0E0;
+        }
+        
+        /* Using the same base styles as US page with EU-specific modifications */
+        .policy-hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+            min-height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #000C3D 0%, #001066 100%);
+            margin-top: 60px;
+        }
+
+        .policy-hero h1 {
+            font-size: 2.5rem;
+            color: #66FF00;
+            margin-bottom: 1rem;
+        }
+
+        .policy-hero p {
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .risk-levels {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 2rem;
+        }
+
+        .risk-level-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .risk-level-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .risk-level-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .risk-icon {
+            background: #66FF00;
+            padding: 0.75rem;
+            border-radius: 8px;
+            color: #000C3D;
+            font-size: 1.5rem;
+        }
+
+        .risk-title {
+            font-size: 1.5rem;
+            color: #000C3D;
+            margin: 0;
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .requirement-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .requirement-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #000C3D;
+            margin-bottom: 1rem;
+        }
+
+        .compliance-steps {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 2rem;
+        }
+
+        .step-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .step-number {
+            background: #66FF00;
+            color: #000C3D;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .penalties {
+            background: #f5f5f5;
+            padding: 4rem 2rem;
+        }
+
+        .penalties h2 {
+            text-align: center;
+            color: #000C3D;
+            margin-bottom: 2rem;
+        }
+
+        .penalty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .penalty-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode .risk-level-card,
+        body.dark-mode .requirement-card,
+        body.dark-mode .step-card,
+        body.dark-mode .penalty-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(102, 255, 0, 0.2);
+            color: white;
+        }
+
+        body.dark-mode .penalties {
+            background: #000C3D;
+        }
+
+        body.dark-mode h2,
+        body.dark-mode h3,
+        body.dark-mode .risk-title {
+            color: #66FF00;
+        }
+
+        @media (max-width: 768px) {
+            .step-card {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .step-number {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="logo-container">
+            <img src="../logo.png" alt="DevWay Logo" class="logo">
+            <span class="logo-text">DevWay</span>
+        </div>
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="home.html" class="nav-link">🏠 Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="Goal.html" class="nav-link">🎯 Dev-Goal</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">🌍 Regions</a>
+                <div class="dropdown">
+                    <a href="p-US.html" class="dropdown-link">🇺🇸 US Policies & Regulations</a>
+                    <a href="p-EU.html" class="dropdown-link">🇪🇺 EU Policies & Regulations</a>
+                    <a href="regions.html#gcc" class="dropdown-link">🌏 GCC Policies & Regulations</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="AboutUs.html" class="nav-link">👥 About Us</a>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="policy-hero">
+        <h1>🇪🇺 EU AI Policies & Regulations</h1>
+        <p>Discover the comprehensive framework of the EU AI Act and its implications for AI development and deployment in the European Union.</p>
+    </section>
+
+    <section class="risk-levels">
+        <h2 style="text-align: center; margin-bottom: 2rem; color: #000C3D;">AI Risk Levels</h2>
+        
+        <div class="risk-level-card">
+            <div class="risk-level-header">
+                <span class="risk-icon">⛔</span>
+                <h3 class="risk-title">Banned AI (Unacceptable Risk)</h3>
+            </div>
+            <ul>
+                <li>Social scoring systems</li>
+                <li>Real-time biometric surveillance (with exceptions)</li>
+                <li>AI manipulation of human behavior</li>
+                <li>Exploitation of vulnerabilities</li>
+            </ul>
+        </div>
+
+        <div class="risk-level-card">
+            <div class="risk-level-header">
+                <span class="risk-icon">⚠️</span>
+                <h3 class="risk-title">High-Risk AI</h3>
+            </div>
+            <ul>
+                <li>Critical infrastructure</li>
+                <li>Educational/vocational training</li>
+                <li>Employment and worker management</li>
+                <li>Essential private/public services</li>
+            </ul>
+        </div>
+
+        <div class="risk-level-card">
+            <div class="risk-level-header">
+                <span class="risk-icon">📝</span>
+                <h3 class="risk-title">Limited Risk AI</h3>
+            </div>
+            <ul>
+                <li>Chatbots</li>
+                <li>Emotion recognition systems</li>
+                <li>Biometric categorization systems</li>
+                <li>Deep fakes</li>
+            </ul>
+        </div>
+
+        <div class="risk-level-card">
+            <div class="risk-level-header">
+                <span class="risk-icon">✅</span>
+                <h3 class="risk-title">Minimal Risk AI</h3>
+            </div>
+            <ul>
+                <li>AI-enabled video games</li>
+                <li>Spam filters</li>
+                <li>Inventory management systems</li>
+                <li>Basic AI research</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="compliance-steps">
+        <h2 style="text-align: center; margin-bottom: 2rem; color: #000C3D;">Key Compliance Steps</h2>
+        
+        <div class="step-card">
+            <div class="step-number">1</div>
+            <div>
+                <h3>Risk Assessment</h3>
+                <p>Determine your AI system's risk category and applicable requirements</p>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-number">2</div>
+            <div>
+                <h3>Documentation</h3>
+                <p>Maintain comprehensive technical documentation and establish data governance</p>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-number">3</div>
+            <div>
+                <h3>Testing & Validation</h3>
+                <p>Implement rigorous testing protocols and bias prevention measures</p>
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-number">4</div>
+            <div>
+                <h3>Monitoring</h3>
+                <p>Establish continuous monitoring and post-market surveillance systems</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="penalties">
+        <h2>Non-Compliance Penalties</h2>
+        <div class="penalty-grid">
+            <div class="penalty-card">
+                <h3>Severe Violations</h3>
+                <p>Up to €35M or 7% of global revenue</p>
+                <ul>
+                    <li>Use of prohibited AI systems</li>
+                    <li>Violation of data governance requirements</li>
+                </ul>
+            </div>
+
+            <div class="penalty-card">
+                <h3>Major Violations</h3>
+                <p>Up to €15M or 3% of global revenue</p>
+                <ul>
+                    <li>Non-compliance with obligations</li>
+                    <li>Provision of incorrect information</li>
+                </ul>
+            </div>
+
+            <div class="penalty-card">
+                <h3>Minor Violations</h3>
+                <p>Up to €7.5M or 1.5% of global revenue</p>
+                <ul>
+                    <li>Minor documentation issues</li>
+                    <li>Technical non-compliance</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+    </button>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>
