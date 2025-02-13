@@ -127,7 +127,7 @@
             </button>
         </div>
     </div>
-
+    <iframe src="ai-ethics-chatbot.html" style="width: 100%; height: 600px; border: none;"></iframe>
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
@@ -140,5 +140,10 @@
     <script src="../js/script.js"></script>
     <script src="../js/Button.js"></script>
     <script src="../js/chatbot.js"></script>
+    <script>
+        document.querySelector('.chat-toggle').addEventListener('click', function() {
+            document.querySelector('.chat-container').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
