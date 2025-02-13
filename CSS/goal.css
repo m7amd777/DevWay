@@ -54,60 +54,43 @@
 }
 
 .nav-link:hover {
-    color: var(--bright-green);
+    color: #66FF00;
 }
 
 .dropdown {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: var(--dark-blue);
+    background: #000C3D;
     min-width: 200px;
-    border-radius: 0 0 4px 4px;
-    padding: 0.5rem 0;
-    display: none;
-    z-index: 1000;
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .nav-item:hover .dropdown {
-    display: flex;
-    flex-direction: column;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .dropdown-link {
-    color: var(--white);
+    display: block;
+    padding: 0.8rem 1rem;
+    color: #FFFFFF;
     text-decoration: none;
-    padding: 0.75rem 1.5rem;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
 }
 
 .dropdown-link:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--bright-green);
+    background: #66FF00;
+    color: #000C3D;
 }
 
-body.dark-mode .nav {
-    border-bottom: 1px solid var(--bright-green);
-}
 
-body:not(.dark-mode) .nav {
-    background-color: var(--white);
-    border-bottom: 1px solid var(--light-gray);
-}
-
-body:not(.dark-mode) .nav-link,
-body:not(.dark-mode) .logo-text {
-    color: var(--dark-blue);
-}
-
-body:not(.dark-mode) .dropdown {
-    background-color: var(--white);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-body:not(.dark-mode) .dropdown-link {
-    color: var(--dark-blue);
-}
 :root {
     --logo-size: 40px;
     --nav-height: 60px;
@@ -159,20 +142,32 @@ body:not(.dark-mode) .navbar h1 {
     align-items: center;
 }
 
+.button-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+    margin-top: auto;
+}
+
 .theme-toggle {
-    background: none;
+    background: var(--dark-blue);
     border: none;
     color: var(--white);
     cursor: pointer;
-    padding: 0.5rem;
+    padding: 0.75rem;
     border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     transition: all 0.3s ease;
 }
 
 .theme-toggle:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
 }
 
+body.dark-mode .theme-toggle {
+    background: var(--bright-green);
+    color: var(--dark-blue);
+}
 body:not(.dark-mode) .theme-toggle {
     color: var(--dark-blue);
 }
