@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US AI Policies & Regulations - DevWay</title>
+    <link rel="stylesheet" href="../CSS/Button.css">
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Fira Code', monospace;
+        }
+         .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo {
+            width: var(--logo-size);
+            height: var(--logo-size);
+            object-fit: contain;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--white);
+        }
+        
+        /* Navigation styles */
+        .nav {
+            background-color: var(--dark-blue);
+            padding: 0 2rem;
+            height: var(--nav-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        
+        .nav-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        
+        .nav-item {
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: var(--white);
+            text-decoration: none;
+            padding: 0 1.5rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #66FF00;
+        }
+        
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #000C3D;
+            min-width: 200px;
+            border-radius: 4px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-link {
+            display: block;
+            padding: 0.8rem 1rem;
+            color: #FFFFFF;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .dropdown-link:hover {
+            background: #66FF00;
+            color: #000C3D;
+        }
+        
+        
+        :root {
+            --logo-size: 40px;
+            --nav-height: 60px;
+            --dark-blue: #000C3D;
+            --bright-green: #66FF00;
+            --white: #FFFFFF;
+            --black: #000000;
+            --light-gray: #E0E0E0;
+        }
+        
+        .policy-hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+            min-height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #000C3D 0%, #001066 100%);
+            margin-top: 60px;
+        }
+
+        .policy-hero h1 {
+            font-size: 2.5rem;
+            color: #66FF00;
+            margin-bottom: 1rem;
+        }
+
+        .policy-hero p {
+            color: white;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .policy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .policy-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .policy-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .policy-card h3 {
+            color: #000C3D;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .policy-icon {
+            background: #66FF00;
+            padding: 0.5rem;
+            border-radius: 8px;
+            display: inline-flex;
+        }
+
+        .timeline {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 2rem;
+        }
+
+        .timeline h2 {
+            text-align: center;
+            color: #000C3D;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-date {
+            color: #66FF00;
+            font-weight: bold;
+            text-align: right;
+            padding-top: 0.5rem;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 50%;
+            width: 32px;
+            height: 2px;
+            background: #66FF00;
+        }
+
+        .timeline-content h3 {
+            color: #000C3D;
+            margin-bottom: 0.5rem;
+        }
+
+        .resources {
+            background: #f5f5f5;
+            padding: 4rem 2rem;
+        }
+
+        .resources h2 {
+            text-align: center;
+            color: #000C3D;
+            margin-bottom: 2rem;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .resource-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .resource-card h4 {
+            color: #000C3D;
+            margin-bottom: 1rem;
+        }
+
+        .resource-card a {
+            color: #66FF00;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .resource-card a:hover {
+            text-decoration: underline;
+        }
+
+        body.dark-mode .policy-card,
+        body.dark-mode .timeline-content,
+        body.dark-mode .resource-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(102, 255, 0, 0.2);
+            color: white;
+        }
+
+        body.dark-mode .resources {
+            background: #000C3D;
+        }
+
+        body.dark-mode h2,
+        body.dark-mode h3,
+        body.dark-mode h4 {
+            color: #66FF00;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-date {
+                text-align: left;
+                margin-bottom: 0.5rem;
+            }
+
+            .timeline-content::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="logo-container">
+            <img src="../logo.png" alt="DevWay Logo" class="logo">
+            <span class="logo-text">DevWay</span>
+        </div>
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="home.html" class="nav-link">🏠 Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="Goal.html" class="nav-link">🎯 Dev-Goal</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">🌍 Regions</a>
+                <div class="dropdown">
+                    <a href="p-US.html" class="dropdown-link"> US Policies & Regulations</a>
+                    <a href="regions.html#eu" class="dropdown-link"> EU Policies & Regulations</a>
+                    <a href="regions.html#gcc" class="dropdown-link">🌏 GCC Policies & Regulations</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="AboutUs.html" class="nav-link">👥 About Us</a>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="policy-hero">
+        <h1>🇺🇸 US AI Policies & Regulations</h1>
+        <p>Explore the evolving landscape of artificial intelligence regulation in the United States, from executive orders to agency-specific guidelines.</p>
+    </section>
+
+    <section class="policy-grid">
+        <div class="policy-card">
+            <h3>
+                <span class="policy-icon">📋</span>
+                Executive Order
+            </h3>
+            <p>Focuses on removing barriers to AI innovation while maintaining safety standards and promoting unbiased development.</p>
+            <ul>
+                <li>Emphasis on unbiased development</li>
+                <li>Balance between innovation and control</li>
+                <li>Agency-specific implementation guidelines</li>
+            </ul>
+        </div>
+
+        <div class="policy-card">
+            <h3>
+                <span class="policy-icon">⚖️</span>
+                State-Level Regulations
+            </h3>
+            <p>Various states implement their own AI regulations, particularly in areas such as:</p>
+            <ul>
+                <li>Privacy protection</li>
+                <li>Facial recognition usage</li>
+                <li>Automated decision systems</li>
+            </ul>
+        </div>
+
+        <div class="policy-card">
+            <h3>
+                <span class="policy-icon">🛡️</span>
+                Agency Guidelines
+            </h3>
+            <p>Federal agencies develop specific AI guidelines for their sectors:</p>
+            <ul>
+                <li>FDA: Medical AI applications</li>
+                <li>FTC: Consumer protection</li>
+                <li>NIST: AI standards and testing</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="timeline">
+        <h2>Recent Developments</h2>
+        <div class="timeline-item">
+            <div class="timeline-date">2025</div>
+            <div class="timeline-content">
+                <h3>Executive Order on AI Leadership</h3>
+                <p>New executive order focusing on removing barriers to AI innovation while maintaining safety standards.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">2024</div>
+            <div class="timeline-content">
+                <h3>AI Risk Assessment Framework</h3>
+                <p>Implementation of comprehensive risk assessment guidelines for AI systems.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">2023</div>
+            <div class="timeline-content">
+                <h3>AI Bill of Rights</h3>
+                <p>Blueprint for protecting rights in the AI era.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="resources">
+        <h2>Additional Resources</h2>
+        <div class="resources-grid">
+            <div class="resource-card">
+                <h4>NIST AI Framework</h4>
+                <p>Comprehensive guidelines for AI risk management and testing.</p>
+                <a href="#">Learn More →</a>
+            </div>
+            <div class="resource-card">
+                <h4>FTC AI Guidelines</h4>
+                <p>Consumer protection guidelines for AI applications.</p>
+                <a href="#">Learn More →</a>
+            </div>
+            <div class="resource-card">
+                <h4>State AI Laws Database</h4>
+                <p>Comprehensive database of state-level AI regulations.</p>
+                <a href="#">Learn More →</a>
+            </div>
+        </div>
+    </section>
+
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+    </button>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>
