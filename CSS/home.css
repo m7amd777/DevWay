@@ -239,3 +239,17 @@
                 transform: translateY(100vh);
             }
         }
+
+@media (max-width: 768px) {
+    .nav-list {
+        flex-direction: column;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .carousel-item {
+        width: 100%;
+    }
+}
