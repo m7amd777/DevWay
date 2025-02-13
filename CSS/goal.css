@@ -1,0 +1,348 @@
+ /* Logo styles */
+ .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo {
+    width: var(--logo-size);
+    height: var(--logo-size);
+    object-fit: contain;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--white);
+}
+
+/* Navigation styles */
+.nav {
+    background-color: var(--dark-blue);
+    padding: 0 2rem;
+    height: var(--nav-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--white);
+    text-decoration: none;
+    padding: 0 1.5rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--bright-green);
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--dark-blue);
+    min-width: 200px;
+    border-radius: 0 0 4px 4px;
+    padding: 0.5rem 0;
+    display: none;
+    z-index: 1000;
+}
+
+.nav-item:hover .dropdown {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-link {
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.dropdown-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--bright-green);
+}
+
+body.dark-mode .nav {
+    border-bottom: 1px solid var(--bright-green);
+}
+
+body:not(.dark-mode) .nav {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--light-gray);
+}
+
+body:not(.dark-mode) .nav-link,
+body:not(.dark-mode) .logo-text {
+    color: var(--dark-blue);
+}
+
+body:not(.dark-mode) .dropdown {
+    background-color: var(--white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+body:not(.dark-mode) .dropdown-link {
+    color: var(--dark-blue);
+}
+:root {
+    --logo-size: 40px;
+    --nav-height: 60px;
+    --dark-blue: #000C3D;
+    --bright-green: #66FF00;
+    --white: #FFFFFF;
+    --black: #000000;
+    --light-gray: #E0E0E0;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: var(--white);
+    color: var(--black);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: var(--dark-blue);
+    color: var(--white);
+}
+
+.navbar {
+    background-color: var(--dark-blue);
+    padding: 1rem;
+    color: var(--white);
+    transition: all 0.3s ease;
+}
+
+body:not(.dark-mode) .navbar {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--light-gray);
+}
+
+body:not(.dark-mode) .navbar h1 {
+    color: var(--dark-blue);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+body:not(.dark-mode) .theme-toggle {
+    color: var(--dark-blue);
+}
+
+body.dark-mode .theme-toggle {
+    color: var(--bright-green);
+}
+
+.goals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.goal-card {
+    background-color: var(--white);
+    border: 1px solid var(--light-gray);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.goal-card:hover {
+    transform: translateY(-5px);
+}
+
+.goal-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.goal-icon {
+    background-color: var(--bright-green);
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    color: var(--dark-blue);
+}
+
+.goal-title {
+    margin: 0;
+    color: var(--dark-blue);
+    font-size: 1.25rem;
+}
+
+.goal-content {
+    color: var(--black);
+}
+
+.tabs {
+    margin-top: 2rem;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    background-color: var(--light-gray);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .tab-buttons {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.tab-button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    color: var(--dark-blue);
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .tab-button {
+    color: var(--white);
+}
+
+.tab-button.active {
+    background-color: var(--bright-green);
+}
+
+body.dark-mode .tab-button.active {
+    background-color: var(--bright-green);
+    color: var(--dark-blue);
+}
+
+.tab-content {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--light-gray);
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .tab-content {
+    background-color: var(--dark-blue);
+    border-color: var(--bright-green);
+}
+
+body.dark-mode .tab-content h3,
+body.dark-mode .tab-content h4,
+body.dark-mode .tab-content p {
+    color: var(--white);
+}
+
+body.dark-mode .practice-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--bright-green);
+}
+
+body.dark-mode .implementation-step::before {
+    color: var(--bright-green);
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+.implementation-steps {
+    list-style: none;
+    padding: 0;
+    counter-reset: step;
+}
+
+.implementation-step {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.implementation-step::before {
+    counter-increment: step;
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    color: var(--bright-green);
+    font-weight: bold;
+}
+
+.best-practices-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.practice-card {
+    background-color: var(--white);
+    border: 1px solid var(--light-gray);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+@media (max-width: 768px) {
+    .goals-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tab-buttons {
+        flex-direction: column;
+    }
+}

@@ -4,223 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevWay AI Development Goals</title>
+    <link rel="stylesheet" href="../CSS/goal.css">
     <link rel="stylesheet" href="../CSS/Button.css">
-    <style>
-        :root {
-            --dark-blue: #000C3D;
-            --bright-green: #66FF00;
-            --white: #FFFFFF;
-            --black: #000000;
-            --light-gray: #E0E0E0;
-        }
-
-        body {
-            margin: 0;
-            font-family: system-ui, -apple-system, sans-serif;
-            background-color: var(--white);
-            color: var(--black);
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        body.dark-mode {
-            background-color: var(--dark-blue);
-            color: var(--white);
-        }
-
-        .navbar {
-            background-color: var(--dark-blue);
-            padding: 1rem;
-            color: var(--white);
-            transition: all 0.3s ease;
-        }
-
-        body:not(.dark-mode) .navbar {
-            background-color: var(--white);
-            border-bottom: 1px solid var(--light-gray);
-        }
-
-        body:not(.dark-mode) .navbar h1 {
-            color: var(--dark-blue);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .theme-toggle {
-            background: none;
-            border: none;
-            color: var(--white);
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-
-        .theme-toggle:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        body:not(.dark-mode) .theme-toggle {
-            color: var(--dark-blue);
-        }
-
-        body.dark-mode .theme-toggle {
-            color: var(--bright-green);
-        }
-
-        .goals-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .goal-card {
-            background-color: var(--white);
-            border: 1px solid var(--light-gray);
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .goal-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .goal-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .goal-icon {
-            background-color: var(--bright-green);
-            padding: 0.75rem;
-            border-radius: 0.5rem;
-            color: var(--dark-blue);
-        }
-
-        .goal-title {
-            margin: 0;
-            color: var(--dark-blue);
-            font-size: 1.25rem;
-        }
-
-        .goal-content {
-            color: var(--black);
-        }
-
-        .tabs {
-            margin-top: 2rem;
-        }
-
-        .tab-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            background-color: var(--light-gray);
-            padding: 0.5rem;
-            border-radius: 0.5rem;
-        }
-
-        .tab-button {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            background: none;
-            cursor: pointer;
-            border-radius: 0.25rem;
-            color: var(--dark-blue);
-            font-weight: 500;
-        }
-
-        .tab-button.active {
-            background-color: var(--bright-green);
-        }
-
-        .tab-content {
-            background-color: var(--white);
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            border: 1px solid var(--light-gray);
-        }
-
-        .tab-panel {
-            display: none;
-        }
-
-        .tab-panel.active {
-            display: block;
-        }
-
-        .implementation-steps {
-            list-style: none;
-            padding: 0;
-            counter-reset: step;
-        }
-
-        .implementation-step {
-            margin-bottom: 1.5rem;
-            padding-left: 2rem;
-            position: relative;
-        }
-
-        .implementation-step::before {
-            counter-increment: step;
-            content: counter(step);
-            position: absolute;
-            left: 0;
-            color: var(--bright-green);
-            font-weight: bold;
-        }
-
-        .best-practices-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-        }
-
-        .practice-card {
-            background-color: var(--white);
-            border: 1px solid var(--light-gray);
-            border-radius: 0.5rem;
-            padding: 1rem;
-        }
-
-        @media (max-width: 768px) {
-            .goals-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .tab-buttons {
-                flex-direction: column;
-            }
-        }
-    </style>
+   
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="header">
-                <h1>DevWay AI Development Goals</h1>
-                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"/>
-                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-                    </svg>
-                </button>
-            </div>
+    <nav class="nav">
+        <div class="logo-container">
+            <img src="../logo.png" alt="DevWay Logo" class="logo">
+            <span class="logo-text">DevWay</span>
         </div>
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="home.html" class="nav-link">🏠 Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="Goal.html" class="nav-link">🎯 Dev-Goal</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">🌍 Regions</a>
+                <div class="dropdown">
+                    <a href="regions.html#us" class="dropdown-link">🇺🇸 US Policies & Regulations</a>
+                    <a href="regions.html#eu" class="dropdown-link">🇪🇺 EU Policies & Regulations</a>
+                    <a href="regions.html#gcc" class="dropdown-link">🌏 GCC Policies & Regulations</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a href="AboutUs.html" class="nav-link">👥 About Us</a>
+            </li>
+        </ul>
+       
     </nav>
 
     <main class="container">
@@ -312,6 +125,12 @@
             </div>
         </section>
     </main>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+    </button>
 
     <script>
         function toggleTheme() {
