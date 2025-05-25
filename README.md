@@ -2,7 +2,7 @@
 
 DevWay is a web platform designed to guide developers through the complex landscape of AI ethics, guidelines, and regulations. It provides centralized, accessible resources for responsible AI development, including region-specific policies, best practices, and an interactive AI ethics chatbot.
 
-**🌐 [View the live site on GitHub Pages](https://your-github-username.github.io/DevWay/)**
+**🌐 [View the live site on GitHub Pages](https://m7amd777.github.io/DevWay/)**
 ## Features
 
 - **Centralized AI Ethics Guidance:**  
