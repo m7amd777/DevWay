@@ -67,4 +67,4 @@ This project is for educational purposes.
 
 ---
 
-For more information, see the [About Us](HTML/AboutUs.html) page.
+For more information, see the [About Us](https://m7amd777.github.io/DevWay/HTML/AboutUs.html) page.
